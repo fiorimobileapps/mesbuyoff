@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ActionSheet showCancelButton="true" placement="Vertical">
+		<buttons>
+			<Button text="{i18n>image}" icon="sap-icon://camera" press="handleAttachImage"/>
+			<Button text="{i18n>audio}" icon="sap-icon://attachment-audio" press="handleAttachAudio"/>
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

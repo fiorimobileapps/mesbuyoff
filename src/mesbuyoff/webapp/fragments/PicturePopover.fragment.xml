@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ResponsivePopover title="{attachment>fileName}" class="sapUiContentPadding" placement="Bottom">
+		<content>
+			<Image src="{attachment>url}" width="100%" densityAware="false"/>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

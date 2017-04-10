@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ActionSheet showCancelButton="true" placement="Vertical">
+		<buttons>
+			<Button text="{i18n>phoneCall}" icon="sap-icon://call" press="handlePhoneCall"/>
+			<Button text="{i18n>smsMessage}" icon="sap-icon://email" press="handleSMSMessage"/>
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

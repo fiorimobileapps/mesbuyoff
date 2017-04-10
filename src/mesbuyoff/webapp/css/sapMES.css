@@ -1,0 +1,191 @@
+.sapMESGreyLabel{
+	color: grey !important;
+}
+.sapMESGreenLabel{
+	color: green !important;
+}
+.sapMESRedLabel{
+	color:#CC0000 !important;
+}
+.sapMESBlueLabel{
+	color:#0087BA !important;
+}
+.sapMESBlackLabel{
+	color:black !important;
+}
+.sapMESBorder {
+	border-bottom: 1px solid #eee;
+}
+.sapMESIssuesNumber{
+	margin-left:3px !important;
+	font-size: 0.875rem !important;
+}
+.sapMESAccuracy{
+	font-size:1.2em;
+	color: grey !important;
+	font-family:Arial !important;
+}
+.sapMESIconSize{
+	font-size:14pt !important;
+}
+.sapMESDirectionImage{
+	margin-top:-10px;
+}
+.sapMESPageBackground{
+	background-color:#efefef !important;
+}
+.sapMESWhiteBackground{
+	background-color:white !important;
+}
+.sapMESBlackBackground{
+	background-color:black !important;
+}
+.sapMESSmallFont{
+	font-size:10pt !important;
+}
+.sapMESMiniVideo {
+	right: 20px;
+	bottom: 20px;
+	height: 150px;
+	width: 112.5px;
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+.sapMESFullScreenVideo {
+	height: 100%;
+	width: 100%;
+}
+.sapMESIconColor1{
+	color: #427cac;
+}
+.sapMESToolBar {
+	background-color:#fafafa;
+}
+.sapMESListHeaderColor {
+	background-color:#f7f7f7;
+}
+.sapMESListGroupColor {
+	background-color:#e5e5e5;
+}
+.sapMESLargerFontSize{
+	font-size: 1.25rem;
+}
+
+/*  ==== Overview Page ========================================================== */
+
+.sapMESOverviewPageProgress{
+	margin-top:-20px !important;
+}
+.sapMESOverviewPageProgressIndicatorPlanned{
+	border:none !important;
+	background-color:#E5E3E0 !important;
+}
+.sapMESOverviewPageProgressIndicatorPlanned>.sapMESProgressBar{
+	border:none !important;
+	background: #999999;
+}
+
+.sapMESProgressBar{
+	border:none !important;
+}
+
+/*  ==== CustomProgressIndicator ========================================================== */
+
+.sapMESProgressIndicatorActualGreen{
+	border:none !important;
+	background-color:#005f28 !important;
+	
+}
+.sapMESProgressIndicatorActualRed{
+	border:none !important;
+	background-color:#E5E3E0 !important;
+}
+.sapMESProgressIndicatorActualGreen>.sapMESProgressBar{
+	background: #005f28
+	
+}
+.sapMESProgressIndicatorActualRed>.sapMESProgressBar{
+	background: #CC0000;
+}
+}
+/*  ==== Milestone ========================================================== */
+
+.sapMESStatusInactive {
+	display: inline-block;
+	padding: 8px;
+	border: 2px solid #ddd;
+	border-radius: 12px;
+	text-align: center;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.sapMESStatusConnectLine {
+	display: inline-block;
+	background:#ddd;
+	text-align: center;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 8px;
+}
+
+.sapMESStatusActive {
+	background:#5FA454;
+	border: 2px solid #5FA454;
+}
+.sapMESIconIsReleased{
+	background: #5FA454;
+	width: 24px;
+	height: 24px;
+	color: #fff;
+	position: relative;
+	float: left;
+	top: -10px;
+	border-radius: 12px;
+	left: -10px;
+	box-sizing: border-box;
+}
+.sapMESIconIsDelayed{
+	background: #E98531;
+	width: 24px;
+	height: 24px;
+	color: #fff;
+	position: relative;
+	float: left;
+	top: -10px;
+	border-radius: 12px;
+	left: -10px;
+	box-sizing: border-box;
+}
+.sapMESIconIsFinished {
+	color: #E9112C;
+	position: relative;
+	float: left;
+	top: -12px;
+	left: -10px;
+	box-sizing: border-box;
+}
+.sapMESStatusVerticalLine {
+	display: inline-block;
+	background: #E9112C;
+	text-align: center;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+	float: left;
+	top: -8px;
+	left: 2px;
+}
+.sapMESIconAlignment {
+	vertical-align: bottom;
+	padding-top: 5px;
+}
+.sapMESRemoveListBorderBottom {
+	border-bottom: 0px !important;
+}
+/*  ==== Override CSS ========================================================== */
+
+.sapFDynamicPageContent {
+	padding-top:0 !important;
+}

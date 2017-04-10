@@ -1,0 +1,629 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "com.sap.webide.hybrid.cordova"
+  ],
+  "dataBinding": {
+    "/webapp/view/App.view.xml": {
+      "entitySet": "UNBINDKEY"
+    },
+    "/webapp/view/NotFound.view.xml": {
+      "entitySet": "UNBINDKEY"
+    },
+    "/webapp/view/ObjectNotFound.view.xml": {
+      "entitySet": "UNBINDKEY"
+    },
+    "/webapp/view/Worklist.view.xml": {
+      "entitySet": "Task"
+    },
+    "/webapp/view/Object.view.xml": {
+      "entitySet": "Task"
+    }
+  },
+  "generation": [
+    {
+      "templateId": "sap.ui.ui5-template-plugin.1worklist",
+      "templateVersion": "1.38.3",
+      "dateTimeStamp": "Fri, 06 Jan 2017 04:08:47 GMT"
+    }
+  ],
+  "mockpreview": {
+    "mockUri": "",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "basevalidator": {
+    "services": {
+      "xml": "fioriXmlAnalysis",
+      "js": "fioriJsValidator"
+    }
+  },
+  "codeCheckingTriggers": {
+    "notifyBeforePush": true,
+    "notifyBeforePushLevel": "Error",
+    "blockPush": false,
+    "blockPushLevel": "Error"
+  },
+  "hybrid": {
+    "hatVersion": "1.22.1",
+    "appNamespace": "mes.buyoff",
+    "oDataConfigs": [
+      {
+        "hybridOdata": {
+          "name": "mainService",
+          "serviceUrl": ""
+        },
+        "originOdata": {
+          "name": "mainService",
+          "serviceUrl": "/mes/services/odatasvr.xsodata"
+        }
+      }
+    ],
+    "SelectedPlugins": [
+      {
+        "__metadata": {
+          "uri": "BuildPlugins(PluginID='cordova-plugin-file-transfer',Version='1.6.2')",
+          "type": "ProductApi.BuildPlugins"
+        },
+        "ConfigVariables": {
+          "ANDROID": [],
+          "IOS": []
+        },
+        "DeviceCloud": {
+          "__deferred": {
+            "uri": "BuildPlugins(PluginID='cordova-plugin-file-transfer',Version='1.6.2')/DeviceCloud"
+          }
+        },
+        "PluginID": "cordova-plugin-file-transfer",
+        "Version": "1.6.2",
+        "PluginGuid": "f3b645323176205924ae16ab5dc53ee6",
+        "PluginName": null,
+        "PluginType": "CORDOVA",
+        "Author": "Apache Software Foundation",
+        "License": "Apache-2.0",
+        "Recommended": 0,
+        "PlatformIOS": 1,
+        "PlatformAndroid": 1,
+        "Dependencies": null,
+        "Description": "Cordova File Transfer Plugin",
+        "DocumentationLink": "https://github.com/apache/cordova-plugin-file-transfer#readme",
+        "SourceLink": "https://registry.npmjs.org/cordova-plugin-file-transfer/-/cordova-plugin-file-transfer-1.6.2.tgz",
+        "LastModifiedTime": "2017-03-31T07:24:17Z",
+        "Keywords": "cordova,file,transfer,ecosystem:cordova,cordova-android,cordova-amazon-fireos,cordova-ubuntu,cordova-blackberry10,cordova-ios,cordova-wp7,cordova-wp8,cordova-windows8,cordova-windows,cordova-firefoxos,cordova-browser",
+        "IsDeleted": null,
+        "IsLatest": 1,
+        "ConsoleEnabled": 0,
+        "DeviatingConfigVariables": [],
+        "Versions": [
+          "0.3.0",
+          "0.3.2",
+          "0.3.3",
+          "0.3.4",
+          "0.4.0",
+          "0.4.1",
+          "0.4.2",
+          "0.4.3",
+          "0.4.4",
+          "0.4.5",
+          "0.4.6",
+          "0.4.7",
+          "0.4.8",
+          "0.5.0",
+          "1.0.0",
+          "1.1.0",
+          "1.2.0",
+          "1.2.1",
+          "1.3.0",
+          "1.4.0",
+          "1.5.0",
+          "1.5.1",
+          "1.6.0",
+          "1.6.1",
+          "1.6.2"
+        ],
+        "IOSSelected": 1,
+        "AndroidSelected": 1,
+        "SelectedVersion": "1.6.2"
+      },
+      {
+        "__metadata": {
+          "uri": "BuildPlugins(PluginID='cordova-plugin-media-capture',Version='1.4.2')",
+          "type": "ProductApi.BuildPlugins"
+        },
+        "ConfigVariables": {
+          "ANDROID": [],
+          "IOS": [
+            {
+              "__metadata": {
+                "uri": "https://portal.sapmobilesecure.com/product-api.svc/ConfigVariables(PluginConfigID='9d018f9e8e5060c76cea013be19a1e90')",
+                "type": "ProductApi.ConfigVariables"
+              },
+              "PluginConfigID": "9d018f9e8e5060c76cea013be19a1e90",
+              "VariableName": "CAMERA_USAGE_DESCRIPTION",
+              "DefaultValue": null,
+              "ValidationExpression": null,
+              "Value": null,
+              "Platform": "-8"
+            },
+            {
+              "__metadata": {
+                "uri": "https://portal.sapmobilesecure.com/product-api.svc/ConfigVariables(PluginConfigID='129cecc436e6c154d3bfc40f650442f0')",
+                "type": "ProductApi.ConfigVariables"
+              },
+              "PluginConfigID": "129cecc436e6c154d3bfc40f650442f0",
+              "VariableName": "MICROPHONE_USAGE_DESCRIPTION",
+              "DefaultValue": null,
+              "ValidationExpression": null,
+              "Value": null,
+              "Platform": "-8"
+            },
+            {
+              "__metadata": {
+                "uri": "https://portal.sapmobilesecure.com/product-api.svc/ConfigVariables(PluginConfigID='6713360a295417caff09567bac82914b')",
+                "type": "ProductApi.ConfigVariables"
+              },
+              "PluginConfigID": "6713360a295417caff09567bac82914b",
+              "VariableName": "PHOTOLIBRARY_USAGE_DESCRIPTION",
+              "DefaultValue": null,
+              "ValidationExpression": null,
+              "Value": null,
+              "Platform": "-8"
+            }
+          ]
+        },
+        "DeviceCloud": {
+          "__deferred": {
+            "uri": "BuildPlugins(PluginID='cordova-plugin-media-capture',Version='1.4.2')/DeviceCloud"
+          }
+        },
+        "PluginID": "cordova-plugin-media-capture",
+        "Version": "1.4.2",
+        "PluginGuid": "3791bc1ef95bdc03eeeb6b5607266d45",
+        "PluginName": null,
+        "PluginType": "CORDOVA",
+        "Author": "Apache Software Foundation",
+        "License": "Apache-2.0",
+        "Recommended": 0,
+        "PlatformIOS": 1,
+        "PlatformAndroid": 1,
+        "Dependencies": null,
+        "Description": "Cordova Media Capture Plugin",
+        "DocumentationLink": "https://github.com/apache/cordova-plugin-media-capture#readme",
+        "SourceLink": "https://registry.npmjs.org/cordova-plugin-media-capture/-/cordova-plugin-media-capture-1.4.2.tgz",
+        "LastModifiedTime": "2017-03-08T00:55:10Z",
+        "Keywords": "cordova,media,capture,ecosystem:cordova,cordova-android,cordova-amazon-fireos,cordova-ubuntu,cordova-ios,cordova-blackberry10,cordova-wp7,cordova-wp8,cordova-windows8,cordova-windows",
+        "IsDeleted": null,
+        "IsLatest": 1,
+        "ConsoleEnabled": 0,
+        "DeviatingConfigVariables": [],
+        "Versions": [
+          "0.2.0",
+          "0.2.2",
+          "0.2.3",
+          "0.2.4",
+          "0.2.5",
+          "0.2.6",
+          "0.2.7",
+          "0.2.8",
+          "0.3.0",
+          "0.3.1",
+          "0.3.2",
+          "0.3.3",
+          "0.3.4",
+          "0.3.5",
+          "0.3.6",
+          "1.0.0",
+          "1.0.1",
+          "1.1.0",
+          "1.2.0",
+          "1.3.0",
+          "1.4.0",
+          "1.4.1",
+          "1.4.2"
+        ],
+        "IOSSelected": 1,
+        "AndroidSelected": 1,
+        "SelectedVersion": "1.4.2"
+      },
+      {
+        "__metadata": {
+          "uri": "BuildPlugins(PluginID='cordova-plugin-android-permissions',Version='0.11.0')",
+          "type": "ProductApi.BuildPlugins"
+        },
+        "ConfigVariables": {
+          "ANDROID": [],
+          "IOS": []
+        },
+        "DeviceCloud": {
+          "__deferred": {
+            "uri": "BuildPlugins(PluginID='cordova-plugin-android-permissions',Version='0.11.0')/DeviceCloud"
+          }
+        },
+        "PluginID": "cordova-plugin-android-permissions",
+        "Version": "0.10.0",
+        "PluginGuid": "fc9f1ed773a18acabc1cec0dd278e8e4",
+        "PluginName": null,
+        "PluginType": "CORDOVA",
+        "Author": "Jason Yang",
+        "License": "BSD",
+        "Recommended": 0,
+        "PlatformIOS": 0,
+        "PlatformAndroid": 1,
+        "Dependencies": null,
+        "Description": "Android 6.0 permissions check.",
+        "DocumentationLink": "https://github.com/NeoLSN/cordova-plugin-android-permission#readme",
+        "SourceLink": "https://registry.npmjs.org/cordova-plugin-android-permissions/-/cordova-plugin-android-permissions-0.11.0.tgz",
+        "LastModifiedTime": "2017-03-31T06:50:09Z",
+        "Keywords": "ecosystem:cordova,cordova-android",
+        "IsDeleted": null,
+        "IsLatest": 1,
+        "ConsoleEnabled": 0,
+        "AndroidSelected": 1,
+        "IOSSelected": 0,
+        "SelectedVersion": "0.10.0",
+        "DeviatingConfigVariables": [],
+        "Versions": [
+          "0.2.1",
+          "0.3.0",
+          "0.5.0",
+          "0.5.1",
+          "0.6.0",
+          "0.7.0",
+          "0.8.0",
+          "0.9.0",
+          "0.9.1",
+          "0.10.0",
+          "0.11.0"
+        ]
+      }
+    ],
+    "appname": "mesbuyoff",
+    "appid": "",
+    "appdesc": "",
+    "appversion": "0.0.1",
+    "debugMode": true,
+    "appIcon": {
+      "defaultIcon": "",
+      "defaultIconData": "",
+      "ios": {
+        "ios8Iphone": "",
+        "ios7Iphone": "",
+        "ios7Ipad": "",
+        "ios61Iphone": "",
+        "ios61Ipad": ""
+      },
+      "android": {
+        "ldpi": "",
+        "mdpi": "",
+        "hdpi": "",
+        "xhdpi": ""
+      },
+      "windows": {
+        "s44": "",
+        "s71": "",
+        "s106": "",
+        "s150": "",
+        "s50": "",
+        "w310": ""
+      },
+      "windows10": {
+        "s44": "",
+        "s71": "",
+        "s106": "",
+        "s150": "",
+        "s50": "",
+        "w310": ""
+      }
+    },
+    "appSplash": {
+      "enable": true,
+      "defaultLandscapeSplash": "",
+      "defaultLSplashData": "",
+      "defaultPortraitSplash": "",
+      "defaultPSplashData": "",
+      "delayTime": "1000",
+      "ios": {
+        "iphone": "",
+        "iphone2x": "",
+        "portIpad": "",
+        "portIpad2x": "",
+        "landIpad": "",
+        "landIpad2x": "",
+        "iphone52x": "",
+        "iphone6": "",
+        "iphone6plus": ""
+      },
+      "android": {
+        "landhdpi": "",
+        "porthdpi": "",
+        "landldpi": "",
+        "portldpi": "",
+        "landmdpi": "",
+        "portmdpi": "",
+        "landxhdpi": "",
+        "portxhdpi": ""
+      },
+      "windows": {
+        "s100": "",
+        "s140": "",
+        "s240": ""
+      },
+      "windows10": {
+        "s100": "",
+        "s140": "",
+        "s240": ""
+      }
+    },
+    "kapselLogon": {
+      "type": "",
+      "logo": "",
+      "logoText": "",
+      "background": "",
+      "disablePasscode": false,
+      "hideLogoCopyright": false
+    },
+    "useAppDescriptor4UI5Libs": false,
+    "localBuild": {
+      "useCustomLib": false,
+      "customLibFile": ""
+    },
+    "cloudBuild": {
+      "androidSigning": "ee6cba6a8966ac6da780ac4f1634dc43",
+      "iosSigning": "",
+      "clearCache": false,
+      "tiles": "single",
+      "applications": [
+        {
+          "name": "mesbuyoff",
+          "id": "mes.buyoff",
+          "title": "My Buyoffs",
+          "subtitle": ""
+        }
+      ],
+      "push": false,
+      "androidPlatformId": 307001,
+      "iosPlatformId": 108101,
+      "androidVerboseLogs": false,
+      "iosVerboseLogs": false
+    },
+    "msType": 0,
+    "server": "",
+    "port": "",
+    "hcpmsServer": "",
+    "hybridRevision": "1",
+    "mime": {
+      "path": "",
+      "root": ""
+    },
+    "platform": {
+      "ios": {
+        "selected": false,
+        "preferences": {
+          "Fullscreen": false,
+          "Orientation": "",
+          "EnableViewportScale": false,
+          "UrlScheme": ""
+        }
+      },
+      "android": {
+        "selected": true,
+        "preferences": {
+          "Fullscreen": false,
+          "Orientation": "",
+          "ShowTitle": false,
+          "LogLevel": "",
+          "LoadUrlTimeout": "80000",
+          "UrlScheme": ""
+        }
+      },
+      "windows": {
+        "selected": false,
+        "preferences": {
+          "Fullscreen": false,
+          "Orientation": "",
+          "ShowTitle": false,
+          "LogLevel": ""
+        },
+        "preferencesWin10": {
+          "Fullscreen": false,
+          "Orientation": "",
+          "ShowTitle": false,
+          "LogLevel": ""
+        }
+      }
+    },
+    "plugins": {
+      "cordova": {
+        "device": {
+          "selected": false,
+          "registry": "cordova-plugin-device",
+          "localBuild": true
+        },
+        "network": {
+          "selected": false,
+          "registry": "cordova-plugin-network-information",
+          "localBuild": true
+        },
+        "battery": {
+          "selected": false,
+          "registry": "cordova-plugin-battery-status",
+          "localBuild": true
+        },
+        "accelerometer": {
+          "selected": false,
+          "registry": "cordova-plugin-device-motion",
+          "localBuild": true
+        },
+        "compass": {
+          "selected": false,
+          "registry": "cordova-plugin-device-orientation",
+          "localBuild": true
+        },
+        "geolocation": {
+          "selected": false,
+          "registry": "cordova-plugin-geolocation",
+          "localBuild": true
+        },
+        "camera": {
+          "selected": false,
+          "registry": "cordova-plugin-camera",
+          "localBuild": true
+        },
+        "capture": {
+          "selected": false,
+          "registry": "cordova-plugin-media-capture",
+          "localBuild": true
+        },
+        "media": {
+          "selected": false,
+          "registry": "cordova-plugin-media",
+          "localBuild": true
+        },
+        "file": {
+          "selected": false,
+          "registry": "cordova-plugin-file",
+          "localBuild": true
+        },
+        "transfer": {
+          "selected": false,
+          "registry": "cordova-plugin-file-transfer",
+          "localBuild": true
+        },
+        "dialogs": {
+          "selected": false,
+          "registry": "cordova-plugin-dialogs",
+          "localBuild": true
+        },
+        "vibration": {
+          "selected": false,
+          "registry": "cordova-plugin-vibration",
+          "localBuild": true
+        },
+        "contacts": {
+          "selected": false,
+          "registry": "cordova-plugin-contacts",
+          "localBuild": true
+        },
+        "globalization": {
+          "selected": false,
+          "registry": "cordova-plugin-globalization",
+          "localBuild": true
+        },
+        "splashscreen": {
+          "selected": false,
+          "registry": "cordova-plugin-splashscreen",
+          "localBuild": true
+        },
+        "inappbrowser": {
+          "selected": false,
+          "registry": "cordova-plugin-inappbrowser",
+          "localBuild": true
+        },
+        "console": {
+          "selected": false,
+          "registry": "cordova-plugin-console",
+          "localBuild": true
+        },
+        "statusbar": {
+          "selected": false,
+          "registry": "cordova-plugin-statusbar",
+          "localBuild": true
+        }
+      },
+      "kapsel": {
+        "logon": {
+          "selected": false,
+          "registry": "kapsel-plugin-logon",
+          "localBuild": true
+        },
+        "appupdate": {
+          "selected": false,
+          "registry": "kapsel-plugin-appupdate",
+          "localBuild": true
+        },
+        "logger": {
+          "selected": false,
+          "registry": "kapsel-plugin-logger",
+          "localBuild": true
+        },
+        "settings": {
+          "selected": false,
+          "registry": "kapsel-plugin-settings",
+          "localBuild": true
+        },
+        "push": {
+          "selected": false,
+          "registry": "kapsel-plugin-push",
+          "localBuild": true
+        },
+        "encryptedstorage": {
+          "selected": false,
+          "registry": "kapsel-plugin-encryptedstorage",
+          "localBuild": true
+        },
+        "authproxy": {
+          "selected": false,
+          "registry": "kapsel-plugin-authproxy",
+          "localBuild": true
+        },
+        "barcode": {
+          "selected": false,
+          "registry": "kapsel-plugin-barcodescanner",
+          "localBuild": true
+        },
+        "odata": {
+          "selected": false,
+          "registry": "kapsel-plugin-odata",
+          "localBuild": true
+        },
+        "e2etrace": {
+          "selected": false,
+          "registry": "kapsel-plugin-e2etrace",
+          "localBuild": true
+        },
+        "calendar": {
+          "selected": false,
+          "registry": "nl.x-services.plugins.calendar",
+          "localBuild": true
+        },
+        "voicerecord": {
+          "selected": false,
+          "registry": "kapsel-plugin-voicerecording",
+          "localBuild": true
+        },
+        "attachmentviewer": {
+          "selected": false,
+          "registry": "kapsel-plugin-attachmentviewer",
+          "localBuild": true
+        },
+        "printer": {
+          "selected": false,
+          "registry": "de.appplant.cordova.plugin.printer",
+          "localBuild": true
+        }
+      }
+    },
+    "projectfolder": "mesbuyoff"
+  },
+  "appparams": [
+    {
+      "paramName": "sap-ui-xx-lesssupport",
+      "paramValue": "true",
+      "paramActive": true
+    }
+  ],
+  "hcpdeploy": {
+    "account": "i062271trial",
+    "name": "mesbuyoff",
+    "lastVersionWeTriedToDeploy": "1.0.8"
+  }
+}

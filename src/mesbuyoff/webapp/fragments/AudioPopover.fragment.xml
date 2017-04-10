@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:lc="mes.lib.controls">
+	<ResponsivePopover title="{attachment>fileName}" class="sapUiContentPadding" placement="Bottom">
+		<content>
+			<lc:Audio src="{attachment>url}" height="40px" width="100%"/>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

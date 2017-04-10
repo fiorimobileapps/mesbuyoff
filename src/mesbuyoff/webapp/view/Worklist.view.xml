@@ -1,0 +1,61 @@
+<mvc:View controllerName="mes.buyoff.controller.Worklist" displayBlock="true" xmlns:c="mes.buyoff.controls" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m">
+	<semantic:FullscreenPage id="page" showFooter="false" title="{i18n>worklistTitle}">
+		<semantic:content>
+			<IconTabBar id="idIconTabBar" upperCase="true" select="onQuickFilter" expandable="false" applyContentPadding="false">
+				<items>
+					<IconTabFilter text="{i18n>waiting}" key="waiting" count="{viewModel>/waiting}"></IconTabFilter>
+					<IconTabFilter text="{i18n>rejected}" key="rejected" iconColor="Negative" count="{viewModel>/rejected}"></IconTabFilter>
+					<IconTabFilter text="{i18n>confirmed}" key="confirmed" count="{viewModel>/confirmed}"></IconTabFilter>
+				</items>
+				<content>
+					<Table id="list" items="{ path: '/Task', sorter: { path: 'WorkCenter', descending: false, group: '.getOperation' } }"
+						mode="SingleSelectMaster" noDataText="{i18n>noDataText}" selectionChange="handleSelectionChange" updateFinished="onUpdateFinished">
+						<headerToolbar>
+							<Toolbar>
+								<Title id="itemCount" text="{i18n>items}" level="H2"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="12em"><Text text="{i18n>tasks}"/></Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"><Text text="{i18n>operator}"/></Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" visible="{= ${viewModel>/_selectedTab} === 'waiting'}">
+								<Text text="{i18n>distance}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" visible="{= ${viewModel>/_selectedTab} === 'rejected'}">
+								<Text text="{i18n>reasonCode}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" hAlign="Right"
+								visible="{= ${viewModel>/_selectedTab} === 'waiting'}">
+								<Text text="{i18n>materialRunoutIn}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" visible="{= ${viewModel>/_selectedTab} === 'rejected'}">
+								<Text text="{i18n>attachment}"/>
+							</Column>
+							<Column hAlign="Right"><Text id="startTime" text="{i18n>latestUpdate}"/></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{Operation}"/>
+									<Link text="{Operator}"/>
+									<Text text="{path:'Distance', formatter: '.formatter.formatDistance'}" visible="{= ${viewModel>/_selectedTab} === 'waiting'}"/>
+									<Text text="{ReasonCode}" visible="{= ${viewModel>/_selectedTab} === 'rejected'}"/>
+									<ObjectNumber number="{MaterialRunoutIn}" unit="mins" emphasized="false"
+										state="{path:'MaterialRunoutIn', formatter:'.formatter.formatTimeColor2'}" visible="{= ${viewModel>/_selectedTab} === 'waiting'}"/>
+									<HBox visible="{= ${viewModel>/_selectedTab} === 'rejected'}">
+										<core:Icon src="sap-icon://image-viewer" size="1.25rem" class="sapUiTinyMargin"/>
+										<Label text="{path:'Items', formatter:'.formatter.getImageCount'}" class="sapUiSmallMarginTop"/>
+										<core:Icon src="sap-icon://microphone" size="1.25rem" class="sapUiTinyMargin"/>
+										<Label text="{path:'Items', formatter:'.formatter.getAudioCount'}" class="sapUiSmallMarginTop"/>
+									</HBox>
+									<ObjectNumber emphasized="false" number="{path:'LatestUpdate', formatter:'.formatter.formatTime'}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

@@ -1,0 +1,218 @@
+<mvc:View controllerName="mes.buyoff.controller.Detail" displayBlock="true" xmlns:c="mes.buyoff.controls" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+	<semantic:FullscreenPage id="page" title="{i18n>detailTitle}" showFooter="{= ${detail>/Status} === 'Waiting'}" showNavButton="true" navButtonPress="onNavBack">
+		<semantic:content>
+			<ObjectHeader id="oh1" responsive="true" fullScreenOptimized="true" title="{detail>/Operation}" number="{detail>/Status}"
+				backgroundDesign="Translucent">
+				<statuses>
+					<ObjectStatus id="online" title="{i18n>operator}" text="{detail>/Operator}" icon="sap-icon://account"/>
+					<ObjectStatus title="{i18n>distance}" text="{path:'detail>/Distance', formatter: '.formatter.formatDistance'}"/>
+					<ObjectStatus title="{i18n>latestUpdate}" text="{path: 'detail>/LatestUpdate', formatter: '.formatter.formatTime'}"/>
+					<ObjectStatus title="{i18n>materialRunoutIn}" text="{detail>/MaterialRunoutIn} mins"
+						state="{path:'json>MaterialRunoutIn', formatter:'.formatter.formatTimeColor2'}"/>
+				</statuses>
+				<headerContainer>
+					<IconTabBar id="itb1" selectedKey="info" upperCase="true" class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter text="{i18n>info}" key="info">
+								<content>
+									<VBox>
+										<HBox width="100%">
+											<Label text="{i18n>basicData}" class="sapUiSmallMargin sapMESLargerFontSize"/>
+										</HBox>
+										<HBox width="100%">
+											<VBox class="sapUiSmallMarginBegin">
+												<Label text="{i18n>taskId}:"/>
+												<Link text="{detail>/TaskId}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>workCenter}:"/>
+												<Label text="{detail>/WorkCenter}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>material}:"/>
+												<Label text="{detail>/Material}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>reqiredMachine}:"/>
+												<Label text="{detail>/Machine}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>priority}:"/>
+												<RatingIndicator value="{detail>/Priority}" iconSize="1rem" enabled="false" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>feasibility}:"/>
+												<RatingIndicator value="{detail>/Feasibility}" iconSize="1rem" enabled="false" class="sapUiSmallMarginBottom"/>
+											</VBox>
+										</HBox>
+									</VBox>
+									<VBox>
+										<HBox width="100%">
+											<Label text="{i18n>tool}" class="sapUiSmallMargin sapMESLargerFontSize"/>
+										</HBox>
+										<HBox width="100%">
+											<VBox class="sapUiSmallMarginBegin">
+												<Label text="{i18n>toolModel}:"/>
+												<Label text="{detail>/ToolModel}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>toolId}:"/>
+												<Label text="{detail>/ToolId}" class="sapUiSmallMarginBottom"/>
+											</VBox>
+										</HBox>
+									</VBox>
+									<VBox>
+										<HBox width="100%">
+											<Label text="{i18n>components}" class="sapUiSmallMargin sapMESLargerFontSize"/>
+										</HBox>
+										<HBox width="100%">
+											<VBox class="sapUiSmallMarginBegin">
+												<Label text="{i18n>components}:"/>
+												<Label text="{detail>/Component}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>componentQuantity}:"/>
+												<Label text="{detail>/ComponentQuantity}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>componentFeeder}:"/>
+												<Label text="{detail>/ComponentFeeder}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>componentBatch}:"/>
+												<Label text="{detail>/ComponentBatch}" class="sapUiSmallMarginBottom"/>
+											</VBox>
+										</HBox>
+									</VBox>
+									<VBox id="displayOperator" visible="true">
+										<HBox width="100%">
+											<Label text="{i18n>operator}" class="sapUiSmallMargin sapMESLargerFontSize"/>
+										</HBox>
+										<HBox width="100%">
+											<VBox class="sapUiSmallMarginBegin">
+												<Label text="{i18n>operatorName}:"/>
+												<Label text="{detail>/Operator}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>operatorId}:"/>
+												<Label text="{detail>/OperatorId}" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>operatorPhone}:"/>
+												<Label text="{detail>/PhoneNumber}" class="sapUiSmallMarginBottom"/>
+											</VBox>
+										</HBox>
+									</VBox>
+									<VBox id="editOperator" visible="false">
+										<HBox width="100%">
+											<Label text="{i18n>operator}" class="sapUiSmallMargin sapMESLargerFontSize"/>
+										</HBox>
+										<HBox width="100%">
+											<VBox width="80%" class="sapUiSmallMarginBegin">
+												<Label text="{i18n>operatorName}:"/>
+												<Input type="Text" id="edOperatorName" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>operatorId}:"/>
+												<Input type="Text" id="edOperatorId" class="sapUiSmallMarginBottom"/>
+												<Label text="{i18n>operatorPhone}:"/>
+												<Input type="Text" id="edPhoneNumber" class="sapUiSmallMarginBottom"/>
+												<HBox width="100%">
+													<Button type="Emphasized" text="Save" press="handleOperatorInfoSave" class="sapUiSmallMarginEnd"/>
+													<Button text="Cancel" press="handleOperatorInfoCancel"/>
+												</HBox>
+											</VBox>
+										</HBox>
+									</VBox>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="{i18n>manual}" key="manual">
+								<content>
+									<l:VerticalLayout class="sapUiContentPadding" width="100%">
+										<l:content>
+											<Text text="{detail>/Description}"/>
+											<Image src="{path:'detail>/ImageUrl', formatter:'.formatter.getImageUrl'}" densityAware="false" width="100%" class="sapUiSmallMarginTop"/>
+											<Text text="{detail>/Description}"/>
+											<c:Video src="{path:'detail>/VideoUrl', formatter:'.formatter.getVideoUrl'}" width="100%" class="sapUiSmallMarginTop"/>
+										</l:content>
+									</l:VerticalLayout>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter visible="true" text="{i18n>feedback}" key="feedback">
+								<content>
+									<l:VerticalLayout width="100%">
+										<l:content>
+											<VBox>
+												<Panel width="auto">
+													<headerToolbar>
+														<Toolbar height="3rem">
+															<Title text="{i18n>qualityIssue}" level="H4" titleStyle="H4"/>
+															<ToolbarSpacer/>
+															<!-- <Button icon="sap-icon://edit" /> -->
+														</Toolbar>
+													</headerToolbar>
+													<content>
+														<VBox id="editFeedBack" visible="false">
+															<HBox width="100%">
+																<VBox width="100%">
+																	<Label text="{i18n>sfi}:"/>
+																	<Label id="SFI" text="{detail>/QualityIssueSFI}" class="sapUiSmallMarginBottom"/>
+																	<Label text="{i18n>reasonCode}:"/>
+																	<Select id="reasonCode" width="100%" selectedKey="{detail>/QualityIssueReasonCode}" class="sapUiSmallMarginBottom">
+																		<items>
+																			<core:Item text="MainStreet" key="MainStreet"/>
+																			<core:Item text="Others" key="others"/>
+																		</items>
+																	</Select>
+																	<HBox>
+																		<VBox width="100%" justifyContent="End">
+																			<Label text="{i18n>note}:"/>
+																		</VBox>
+																	</HBox>
+																	<TextArea id="note" width="100%" rows="4"/>
+																</VBox>
+															</HBox>
+														</VBox>
+														<VBox id="displayFeedBack" visible="false">
+															<HBox width="100%">
+																<VBox width="100%">
+																	<Label text="{i18n>sfi}:"/>
+																	<Label text="{detail>/QualityIssueSFI}" class="sapUiSmallMarginBottom"/>
+																	<Label text="{i18n>reasonCode}:"/>
+																	<Label text="{detail>/QualityIssueReasonCode}" class="sapUiSmallMarginBottom"/>
+																	<HBox>
+																		<VBox width="100%" justifyContent="End">
+																			<Label text="{i18n>note}:"/>
+																		</VBox>
+																	</HBox>
+																	<Text text="{detail>/QualityIssueNote}"/>
+																</VBox>
+															</HBox>
+														</VBox>
+													</content>
+												</Panel>
+												<c:UploadCollection id="uploadCollection" showSeparators="All" items="{path : 'detail>/Items', templateShareable : 'true'}"
+													fileDeleted="onFileDeleted">
+													<c:toolbar>
+														<OverflowToolbar>
+															<Title text="{i18n>attachments}"/>
+															<ToolbarSpacer/>
+															<Button id="attachmentIcon" icon="sap-icon://add" press="handleAttachmentPress" visible="false"/>
+														</OverflowToolbar>
+													</c:toolbar>
+													<c:items>
+														<UploadCollectionItem documentId="{detail>DocumentId}" fileName="{detail>FileName}" mimeType="{detail>MimeType}"
+															thumbnailUrl="{detail>ThumbnailUrl}" url="{detail>Url}" enableEdit="{= ${detail>/Status} === 'Waiting' }"
+															enableDelete="{= ${detail>/Status} === 'Waiting' }" visibleDelete="{= ${detail>/Status} === 'Waiting' }"
+															visibleEdit="{= ${detail>/Status} === 'Waiting' }" attributes="{path : 'detail>Attributes', templateShareable : 'true'}"
+															statuses="{path : 'detail>Statuses', templateShareable : 'true'}" selected="{detail>Selected}">
+															<attributes>
+																<ObjectAttribute title="{detail>Title}" text="{parts : ['detail>Text', 'detail>Type'], formatter : '.formatAttribute'}"
+																	active="{detail>Active}"/>
+															</attributes>
+															<statuses>
+																<ObjectStatus title="{detail>Title}" text="{detail>Text}" state="{detail>State}" icon="{detail>Icon}"
+																	iconDensityAware="{detail>IconDensityAware}" textDirection="{detail>TextDirection}"/>
+															</statuses>
+														</UploadCollectionItem>
+													</c:items>
+												</c:UploadCollection>
+											</VBox>
+										</l:content>
+									</l:VerticalLayout>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</headerContainer>
+			</ObjectHeader>
+		</semantic:content>
+		<semantic:customFooterContent>
+			<Button id="cancel" text="{i18n>cancel}" press="handleCancelPress" visible="false"/>
+			<Button id="contact" text="{i18n>contact}" press="handleContactPress"/>
+			<Button id="save" text="{i18n>save}" type="Emphasized" press="handleSavePress" visible="false"/>
+			<Button id="reject" text="{i18n>reject}" type="Reject" press="handleRejectPress"/>
+			<Button id="confirm" text="{i18n>confirm}" type="Accept" press="handleConfirmPress"/>
+		</semantic:customFooterContent>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+	</semantic:FullscreenPage>
+</mvc:View>

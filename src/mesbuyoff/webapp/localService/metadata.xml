@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema Namespace="mesodata.service.mesodatasvr"
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="TaskType">
+                <Key>
+                    <PropertyRef Name="TaskId" />
+                </Key>
+                <Property Name="TaskId" Type="Edm.String" Nullable="false" MaxLength="16" />
+                <Property Name="WorkCenter" Type="Edm.String" MaxLength="128" />
+                <Property Name="ManufacturingOrder" Type="Edm.Int32" />
+                <Property Name="Operation" Type="Edm.String" MaxLength="128" />
+                <Property Name="OperationId" Type="Edm.Int32" />
+                <Property Name="Description" Type="Edm.String" MaxLength="256" />
+                <Property Name="SupportRequest" Type="Edm.String" MaxLength="128" />
+                <Property Name="Status" Type="Edm.String" MaxLength="8" />
+                <Property Name="ImageUrl" Type="Edm.String" MaxLength="256" />
+                <Property Name="VideoUrl" Type="Edm.String" MaxLength="256" />
+                <Property Name="OperatorId" Type="Edm.String" MaxLength="128" />
+                <Property Name="Operator" Type="Edm.String" MaxLength="128" />
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="128" />
+                <Property Name="StartTime" Type="Edm.String" MaxLength="128" />
+                <Property Name="LatestUpdate" Type="Edm.String" MaxLength="128" />
+                <Property Name="Distance" Type="Edm.String" MaxLength="128" />
+                <Property Name="MaterialRunoutIn" Type="Edm.Int32" />
+                <Property Name="ReasonCode" Type="Edm.String" MaxLength="128" />
+                <Property Name="Machine" Type="Edm.String" MaxLength="128" />
+                <Property Name="Material" Type="Edm.String" MaxLength="128" />
+                <Property Name="Priority" Type="Edm.Int32" />
+                <Property Name="Feasibility" Type="Edm.Int32" />
+                <Property Name="ToolsModel" Type="Edm.String" MaxLength="128" />
+                <Property Name="ToolId" Type="Edm.String" MaxLength="128" />
+                <Property Name="Component" Type="Edm.String" MaxLength="256" />
+                <Property Name="ComponentQuantity" Type="Edm.String" MaxLength="128" />
+                <Property Name="ComponentFeeder" Type="Edm.String" MaxLength="128" />
+                <Property Name="ComponentBatch" Type="Edm.String" MaxLength="128" />
+                <Property Name="QualityIssueSFI" Type="Edm.String" MaxLength="128" />
+                <Property Name="QualityIssueReasonCode" Type="Edm.String" MaxLength="128" />
+                <Property Name="QualityIssueNote" Type="Edm.String" MaxLength="256" />
+                <NavigationProperty Name="IssueItem" Relationship="mesodata.service.mesodatasvr.TaskIssueType" FromRole="TaskPrincipal" ToRole="IssueItemDependent" />
+            </EntityType>
+            <EntityType Name="IssueItemType">
+                <Key>
+                    <PropertyRef Name="DocumentId" />
+                </Key>
+                <Property Name="DocumentId" Type="Edm.String" Nullable="false" MaxLength="16" />
+                <Property Name="TaskId" Type="Edm.String" MaxLength="16" />
+                <Property Name="FileName" Type="Edm.String" MaxLength="128" />
+                <Property Name="MimeType" Type="Edm.String" MaxLength="128" />
+                <Property Name="Url" Type="Edm.String" MaxLength="256" />
+                <Property Name="Attributes.Title" Type="Edm.String" MaxLength="128" />
+                <Property Name="Attributes.Text" Type="Edm.String" MaxLength="4000" />
+            </EntityType>
+            <Association Name="TaskIssueType">
+                <End Type="mesodata.service.mesodatasvr.TaskType" Role="TaskPrincipal" Multiplicity="1"/>
+                <End Type="mesodata.service.mesodatasvr.IssueItemType" Role="IssueItemDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="TaskPrincipal">
+                        <PropertyRef Name="TaskId"/>
+                    </Principal>
+                    <Dependent Role="IssueItemDependent">
+                        <PropertyRef Name="TaskId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="mesodatasvr" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Task" EntityType="mesodata.service.mesodatasvr.TaskType" />
+                <EntitySet Name="IssueItem" EntityType="mesodata.service.mesodatasvr.IssueItemType" />
+                <AssociationSet Name="TaskIssue" Association="mesodata.service.mesodatasvr.TaskIssueType">
+                    <End Role="TaskPrincipal" EntitySet="Task"/>
+                    <End Role="IssueItemDependent" EntitySet="IssueItem"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
