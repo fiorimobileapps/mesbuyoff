@@ -3,7 +3,7 @@ sap.ui.define([], function() {
 
 	return {
 		hasAppContext: function() {
-			return sap.hybrid && sap.hybrid.SMP && sap.hybrid.SMP.AppContext;
+			return sap.HybridApp.hasAppContext();
 		},
 
 		getAdapterUrl: function(useFullUrl) {
@@ -37,6 +37,10 @@ sap.ui.define([], function() {
 
 		resolveUrl:function(url, protocol) {
 			return sap.HybridApp.resolveUrl(url, protocol);
+		},
+
+		getUserId: function() {
+			return sap.HybridApp.User.Id;
 		}
 	};
 });

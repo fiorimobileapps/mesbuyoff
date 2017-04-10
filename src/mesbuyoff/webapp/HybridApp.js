@@ -7,6 +7,11 @@ sap.HybridApp = {
 	IsFioriMobile: false,
 	Landscape:"hanatrial.ondemand.com",
 	Account:"p1234567890trial",
+	User: {
+		Id: "P1234567890",
+		FullName: "",
+		Email: ""
+	},
 
 	init: function() {
 		$.getJSON(jQuery.sap.getModulePath("mes.buyoff") + "/Config.json", function(json) {
@@ -19,6 +24,53 @@ sap.HybridApp = {
 		}
 
 		jQuery.sap.includeStyleSheet(jQuery.sap.getModulePath("mes.buyoff.css.sapMES", ".css"));
+	
+		this.getUserId();
+	},
+
+	getUserId: function() {
+		if (sap.HybridApp.IsFioriMobile) {
+			// Get user info from kapsel function & HCPms API
+			var that = this;
+			var onSuccess = function(result) {
+				var baseURL = "https://" + result.registrationContext.serverHost + ":" + result.registrationContext.serverPort + "/mobileservices";
+				var appId = result.applicationEndpointURL.substring(result.applicationEndpointURL.indexOf(result.registrationContext.resourcePath) +
+					result.registrationContext.resourcePath.toString().length + 1);
+				var url = baseURL + "/odata/applications/latest/" + appId + "/Connections('" + result.applicationConnectionId + "')";
+				var headers = {
+					"X-SMP-APPCID": result.applicationConnectionId
+				};
+
+				jQuery.ajax({
+					url: url,
+					async: true,
+					headers: headers,
+					cache: false,
+					dataType: "json",
+					success: function(data, textStatus, xhr) {
+						var user = data.d.UserName;
+						sap.HybridApp.User.Id = user.charAt(0).toUpperCase() + user.slice(1);
+						that.setupSocket();
+					},
+					error: function(xhr, textStatus, e) {
+						jQuery.sap.log.error("Error - " + JSON.stringify(e));
+					}
+				});
+			};
+			var onError = function(error) {
+				jQuery.sap.log.error("Error - " + JSON.stringify(error));
+			};
+			sap.Logon.core.getContext(onSuccess, onError);
+		} else {
+			if (this.hasAppContext()) {
+				var user = sap.hybrid.SMP.AppContext.registrationContext.user;
+				sap.HybridApp.User.Id = user.charAt(0).toUpperCase() + user.slice(1);
+			}
+		}
+	},
+
+	hasAppContext: function() {
+		return sap.hybrid && sap.hybrid.SMP && sap.hybrid.SMP.AppContext;
 	},
 
 	resolveUrl: function(url, protocol) {
