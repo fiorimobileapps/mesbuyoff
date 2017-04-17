@@ -72,12 +72,8 @@ sap.ui.define([
 			oDetailModel.setProperty("/QualityIssueReasonCode", reasonCode);
 			oDetailModel.setProperty("/QualityIssueNote", note);
 
-			if (items.length > 0) {
-				this._uploadedFiles = 0;
-				this._uploadFile(items[0].FileName, items[0].Url);
-			} else {
-				this._issueUploadSuccess();
-			}
+			// Fileupload not supported
+			this._issueUploadSuccess();
 		},
 
 		handleConfirmPress: function() {
@@ -326,78 +322,6 @@ sap.ui.define([
 				type: contentType
 			});
 			return blob;
-		},
-
-		_uploadFile: function(fileName, fileURL) {
-			var options = new FileUploadOptions();
-			options.fileKey = "file";
-			options.fileName = fileName;
-
-			var oHeader = AppContextHelper.getHeader();
-			var fileType = fileURL.substr(fileURL.lastIndexOf(".") + 1);
-
-			if (fileType === "jpg") {
-				options.mimeType = "image/jpeg";
-				oHeader["Content-Type"] = "image/jpeg";
-			} else if (fileType === "m4a") {
-				options.mimeType = "audio/x-m4a";
-				oHeader["Content-Type"] = "audio/x-m4a";
-			} else if (fileType === "wav") {
-				options.mimeType = "audio/wav";
-				oHeader["Content-Type"] = "audio/wav";
-			}
-
-			options.headers = oHeader;
-
-			var docService = AppContextHelper.getAdapterUrl(true) + "document";
-			var url = docService + "?folderName=Buyoffs&fileName=" + fileName;
-
-			sap.ui.core.BusyIndicator.show(0);
-
-			var ft = new FileTransfer();
-			ft.upload(fileURL, url, jQuery.proxy(this._fileUploadSuccess, this), jQuery.proxy(this._fileUploadError, this), options);
-		},
-
-		_fileUploadSuccess: function(oEvent) {
-			var oDetailModel = this.getModel("detail");
-			var items = oDetailModel.getData().Items;
-
-			var docService = AppContextHelper.getAdapterUrl(true) + "document";
-			var uploadedPath = docService + "?id=" + oEvent.response.trim();
-
-			items[this._uploadedFiles].Url = uploadedPath;
-			items[this._uploadedFiles].DocumentId = oEvent.response.trim();
-
-			this._uploadedFiles++;
-
-			if (this._uploadedFiles === items.length) {
-				this._issueUploadSuccess();
-			} else {
-				this._uploadFile(items[this._uploadedFiles].FileName, items[this._uploadedFiles].Url);
-			}
-		},
-
-		_fileUploadError: function(oEvent) {
-			sap.ui.core.BusyIndicator.hide();
-
-			jQuery.sap.log.error("File upload Error code: " + oEvent.code);
-
-			this._enableInputControls(false);
-
-			var that = this;
-			var oResourceBundle = this.getModel("i18n").getResourceBundle();
-			sap.m.MessageBox.show(
-				oResourceBundle.getText("uploadFailed"), {
-					icon: sap.m.MessageBox.Icon.ERROR,
-					title: oResourceBundle.getText("appTitle"),
-					actions: [sap.m.MessageBox.Action.OK],
-					onClose: function(oAction) {
-						jQuery.sap.delayedCall(200, that, function() {
-							that._enableInputControls(true);
-						});
-					}
-				}
-			);
 		},
 
 		_issueUploadSuccess: function(oEvent) {

@@ -1,8 +1,0 @@
-#
-#Fri Mar 24 01:17:47 UTC 2017
-Name=mes_adapter
-URL=https\://cloudadaptersp1234567890trial.hanatrial.ondemand.com/cloudadapters
-ProxyType=Internet
-Type=HTTP
-CloudConnectorVersion=2
-Authentication=NoAuthentication

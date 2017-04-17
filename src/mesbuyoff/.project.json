@@ -71,71 +71,6 @@
     "SelectedPlugins": [
       {
         "__metadata": {
-          "uri": "BuildPlugins(PluginID='cordova-plugin-file-transfer',Version='1.6.2')",
-          "type": "ProductApi.BuildPlugins"
-        },
-        "ConfigVariables": {
-          "ANDROID": [],
-          "IOS": []
-        },
-        "DeviceCloud": {
-          "__deferred": {
-            "uri": "BuildPlugins(PluginID='cordova-plugin-file-transfer',Version='1.6.2')/DeviceCloud"
-          }
-        },
-        "PluginID": "cordova-plugin-file-transfer",
-        "Version": "1.6.2",
-        "PluginGuid": "f3b645323176205924ae16ab5dc53ee6",
-        "PluginName": null,
-        "PluginType": "CORDOVA",
-        "Author": "Apache Software Foundation",
-        "License": "Apache-2.0",
-        "Recommended": 0,
-        "PlatformIOS": 1,
-        "PlatformAndroid": 1,
-        "Dependencies": null,
-        "Description": "Cordova File Transfer Plugin",
-        "DocumentationLink": "https://github.com/apache/cordova-plugin-file-transfer#readme",
-        "SourceLink": "https://registry.npmjs.org/cordova-plugin-file-transfer/-/cordova-plugin-file-transfer-1.6.2.tgz",
-        "LastModifiedTime": "2017-03-31T07:24:17Z",
-        "Keywords": "cordova,file,transfer,ecosystem:cordova,cordova-android,cordova-amazon-fireos,cordova-ubuntu,cordova-blackberry10,cordova-ios,cordova-wp7,cordova-wp8,cordova-windows8,cordova-windows,cordova-firefoxos,cordova-browser",
-        "IsDeleted": null,
-        "IsLatest": 1,
-        "ConsoleEnabled": 0,
-        "DeviatingConfigVariables": [],
-        "Versions": [
-          "0.3.0",
-          "0.3.2",
-          "0.3.3",
-          "0.3.4",
-          "0.4.0",
-          "0.4.1",
-          "0.4.2",
-          "0.4.3",
-          "0.4.4",
-          "0.4.5",
-          "0.4.6",
-          "0.4.7",
-          "0.4.8",
-          "0.5.0",
-          "1.0.0",
-          "1.1.0",
-          "1.2.0",
-          "1.2.1",
-          "1.3.0",
-          "1.4.0",
-          "1.5.0",
-          "1.5.1",
-          "1.6.0",
-          "1.6.1",
-          "1.6.2"
-        ],
-        "IOSSelected": 1,
-        "AndroidSelected": 1,
-        "SelectedVersion": "1.6.2"
-      },
-      {
-        "__metadata": {
           "uri": "BuildPlugins(PluginID='cordova-plugin-media-capture',Version='1.4.2')",
           "type": "ProductApi.BuildPlugins"
         },
@@ -620,10 +555,5 @@
       "paramValue": "true",
       "paramActive": true
     }
-  ],
-  "hcpdeploy": {
-    "account": "i062271trial",
-    "name": "mesbuyoff",
-    "lastVersionWeTriedToDeploy": "1.0.8"
-  }
+  ]
 }
