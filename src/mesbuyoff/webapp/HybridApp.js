@@ -33,6 +33,10 @@ sap.HybridApp = {
 			// Get user info from kapsel function & HCPms API
 			var that = this;
 			var onSuccess = function(result) {
+				var serverInfo = result.registrationContext.serverHost.replace("dispatcher.", ""); 
+				var sap.HybridApp.Account = serverInfo.substring(serverInfo.indexOf("-") + 1, serverInfo.indexOf("."));
+				var sap.HybridApp.Landscape = serverInfo.substring(serverInfo.indexOf(".") + 1);
+
 				var baseURL = "https://" + result.registrationContext.serverHost + ":" + result.registrationContext.serverPort + "/mobileservices";
 				var appId = result.applicationEndpointURL.substring(result.applicationEndpointURL.indexOf(result.registrationContext.resourcePath) +
 					result.registrationContext.resourcePath.toString().length + 1);
@@ -50,7 +54,6 @@ sap.HybridApp = {
 					success: function(data, textStatus, xhr) {
 						var user = data.d.UserName;
 						sap.HybridApp.User.Id = user.charAt(0).toUpperCase() + user.slice(1);
-						that.setupSocket();
 					},
 					error: function(xhr, textStatus, e) {
 						jQuery.sap.log.error("Error - " + JSON.stringify(e));
@@ -63,6 +66,10 @@ sap.HybridApp = {
 			sap.Logon.core.getContext(onSuccess, onError);
 		} else {
 			if (this.hasAppContext()) {
+				var serverInfo = sap.hybrid.SMP.AppContext.registrationContext.serverHost; 
+				var sap.HybridApp.Account = serverInfo.substring(serverInfo.indexOf("-") + 1, serverInfo.indexOf("."));
+				var sap.HybridApp.Landscape = serverInfo.substring(serverInfo.indexOf(".") + 1);
+
 				var user = sap.hybrid.SMP.AppContext.registrationContext.user;
 				sap.HybridApp.User.Id = user.charAt(0).toUpperCase() + user.slice(1);
 			}
